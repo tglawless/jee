@@ -1,6 +1,9 @@
 #WebSphere Liberty Profile pom.xml Builder
 This application is a simple command line tool that will create two POM files for installation into a Maven repository.  The first POM file automates the installation of all of the libraries provided by the Liberty Profile and the second POM is used to add these libraries to a Maven project.
 
+More information can be found here:
+<http://tglawles-jee.blogspot.com/2014/11/using-eclipse-luna-and-maven-with.html> 
+
 ##Building the JAR
 To build the executable JAR file, run the following command from the project root directory:
 ```
