@@ -25,7 +25,7 @@
 				<executions>
 					<#list dependencies as dep>
 					<execution>
-						<id>install-artifacts-${dep.artifactId}</id>
+						<id>install-artifacts-${dep.artifactId}-v${dep.version}</id>
 						<goals>
 							<goal>install-file</goal>
 						</goals>

@@ -149,12 +149,12 @@ public class WlpPomBuilder {
 	public void execute() throws Exception {
 		
 		dependencies = new ArrayList<Dependency>();
-		dependencies.addAll(getDependenciesFromDir(DEFAULT_WAS_BASE_DIR + DEV_API_IBM_DIR));
-		dependencies.addAll(getDependenciesFromDir(DEFAULT_WAS_BASE_DIR + DEV_API_SPEC_DIR));
-		dependencies.addAll(getDependenciesFromDir(DEFAULT_WAS_BASE_DIR + DEV_API_THRID_PARTY_DIR));
-		dependencies.addAll(getDependenciesFromDir(DEFAULT_WAS_BASE_DIR + DEV_SPI_IBM_DIR));
-		dependencies.addAll(getDependenciesFromDir(DEFAULT_WAS_BASE_DIR + DEV_SPI_SPEC_DIR));
-		dependencies.addAll(getDependenciesFromDir(DEFAULT_WAS_BASE_DIR + DEV_SPI_THRID_PARTY_DIR));
+		dependencies.addAll(getDependenciesFromDir(getBaseDir() + DEV_API_IBM_DIR));
+		dependencies.addAll(getDependenciesFromDir(getBaseDir() + DEV_API_SPEC_DIR));
+		dependencies.addAll(getDependenciesFromDir(getBaseDir() + DEV_API_THRID_PARTY_DIR));
+		dependencies.addAll(getDependenciesFromDir(getBaseDir() + DEV_SPI_IBM_DIR));
+		dependencies.addAll(getDependenciesFromDir(getBaseDir() + DEV_SPI_SPEC_DIR));
+		dependencies.addAll(getDependenciesFromDir(getBaseDir() + DEV_SPI_THRID_PARTY_DIR));
 				
 		generateInstallerPom();	
 		generateDevelopmentPom();
