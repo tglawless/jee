@@ -38,7 +38,9 @@ public class WlpPomBuilder {
 	
 	private static final String DEVELOPMENT_POM_TEMPLATE = "wlp_development_pom.ftl";
 	
-	private String wasVersion = "8.5.5.3";
+	private static final String DEFAULT_WAS_VERSION = "LATEST";
+	
+	private String[] wasVersions = {DEFAULT_WAS_VERSION};
 	
 	private String baseDir = DEFAULT_WAS_BASE_DIR;
 	
@@ -69,7 +71,7 @@ public class WlpPomBuilder {
 		String groupId = parts[0].substring(0, parts[0].lastIndexOf("."));
 		String artifactId = parts[0];
 		
-		String version = wasVersion;
+		String version = DEFAULT_WAS_VERSION;
 		String packaging = "jar";
 		
 		if(parts.length >= 2){
@@ -112,36 +114,41 @@ public class WlpPomBuilder {
 	
 	private void generateInstallerPom() throws Exception {
 		
-		Map<String, Object> root = new HashMap<String, Object>();
-        root.put("version", wasVersion);
-        root.put("dependencies", dependencies);
-        
-        /* Get the template */
-        Template temp = cfg.getTemplate(INSTALLER_POM_TEMPLATE);
-
-        /* Merge data-model with template */
-        FileOutputStream pom = new FileOutputStream("was_installer_" + wasVersion + ".pom", false);
-        Writer out = new OutputStreamWriter(pom);
-        temp.process(root, out);
-        pom.flush();
-        pom.close();
+		for(String wasVersion : wasVersions){
+			Map<String, Object> root = new HashMap<String, Object>();
+	        root.put("version", wasVersion);
+	        root.put("dependencies", dependencies);
+	        
+	        /* Get the template */
+	        Template temp = cfg.getTemplate(INSTALLER_POM_TEMPLATE);
+	
+	        /* Merge data-model with template */
+	        FileOutputStream pom = new FileOutputStream("was_installer_" + wasVersion + ".pom", false);
+	        Writer out = new OutputStreamWriter(pom);
+	        temp.process(root, out);
+	        pom.flush();
+	        pom.close();
+		}
+		
 	}
 	
 	private void generateDevelopmentPom() throws Exception {
 		
-		Map<String, Object> root = new HashMap<String, Object>();
-        root.put("version", wasVersion);
-        root.put("dependencies", dependencies);
-        
-        /* Get the template */
-        Template temp = cfg.getTemplate(DEVELOPMENT_POM_TEMPLATE);
-
-        /* Merge data-model with template */
-        FileOutputStream pom = new FileOutputStream("was_development_" + wasVersion + ".pom", false);
-        Writer out = new OutputStreamWriter(pom);
-        temp.process(root, out);
-        pom.flush();
-        pom.close();
+		for(String wasVersion : wasVersions){
+			Map<String, Object> root = new HashMap<String, Object>();
+	        root.put("version", wasVersion);
+	        root.put("dependencies", dependencies);
+	        
+	        /* Get the template */
+	        Template temp = cfg.getTemplate(DEVELOPMENT_POM_TEMPLATE);
+	
+	        /* Merge data-model with template */
+	        FileOutputStream pom = new FileOutputStream("was_development_" + wasVersion + ".pom", false);
+	        Writer out = new OutputStreamWriter(pom);
+	        temp.process(root, out);
+	        pom.flush();
+	        pom.close();
+		}
 	}
 	
 	
@@ -161,12 +168,12 @@ public class WlpPomBuilder {
 		
 	}	
 	
-	public String getWasVersion() {
-		return wasVersion;
+	public String[] getWasVersions() {
+		return wasVersions;
 	}
 
-	public void setWasVersion(String wasVersion) {
-		this.wasVersion = wasVersion;
+	public void setWasVersions(String[] wasVersions) {
+		this.wasVersions = wasVersions;
 	}
 
 	public String getBaseDir() {
@@ -185,7 +192,16 @@ public class WlpPomBuilder {
 		}
 		
 		WlpPomBuilder builder = new WlpPomBuilder();
-		builder.setWasVersion(args[0]);
+		
+		String versions = args[0];
+		if(versions != null){
+			if(versions.contains(",")){
+				builder.setWasVersions(versions.split(","));
+			}else{
+				builder.setWasVersions(new String[]{versions});
+			}
+		}
+		
 		builder.setBaseDir(args[1]);
 		builder.execute();
 	}
