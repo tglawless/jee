@@ -4,5 +4,7 @@ import javax.ejb.Local;
 
 @Local
 public interface MessageManager {
+	
+	public String getMessage();
 
 }
