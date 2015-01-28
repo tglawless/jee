@@ -17,6 +17,7 @@ public class MessageResource {
 	@GET
 	public Response getMessage(){
 		
-		return Response.ok(messageManager.getMessage()).type(MediaType.TEXT_PLAIN).build();
+		//return Response.ok(messageManager.getMessage()).type(MediaType.TEXT_PLAIN).build();
+		return Response.ok("Not implemented...").type(MediaType.TEXT_PLAIN).build();
 	}
 }

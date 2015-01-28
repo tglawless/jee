@@ -2,6 +2,7 @@
     <wb-module deploy-name="project-rest">
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
         <property name="context-root" value="project-rest"/>
         <property name="java-output-path" value="/project-rest/target/classes"/>
         <property name="component.exclusion.patterns" value="WEB-INF/lib/*"/>
