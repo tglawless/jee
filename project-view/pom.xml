@@ -11,4 +11,13 @@
 		<relativePath>../project-parent</relativePath>
 	</parent>
 
+	<dependencies>
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>project-ejb</artifactId>
+			<version>${project.parent.version}</version>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 </project>

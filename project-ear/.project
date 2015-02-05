@@ -3,6 +3,7 @@
 	<name>project-ear</name>
 	<comment></comment>
 	<projects>
+		<project>project-rest</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

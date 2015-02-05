@@ -5,6 +5,7 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="project-rest-1.0.0-SNAPSHOT.war" deploy-path="/" handle="module:/resource/project-rest/project-rest">
+            <dependent-object>Module_1422482233285</dependent-object>
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="project-view-1.0.0-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/project-view/project-view">

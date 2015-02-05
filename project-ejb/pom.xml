@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--  THIS PRODUCT CONTAINS RESTRICTED MATERIALS OF IBM
-5724-H88, 5724-J08, 5724-I63, 5655-W65, COPYRIGHT International Business Machines Corp., 2014
-All Rights Reserved * Licensed Materials - Property of IBM
-US Government Users Restricted Rights - Use, duplication or disclosure
-restricted by GSA ADP Schedule Contract with IBM Corp.
--->
+<!-- THIS PRODUCT CONTAINS RESTRICTED MATERIALS OF IBM 5724-H88, 5724-J08, 
+	5724-I63, 5655-W65, COPYRIGHT International Business Machines Corp., 2014 
+	All Rights Reserved * Licensed Materials - Property of IBM US Government 
+	Users Restricted Rights - Use, duplication or disclosure restricted by GSA 
+	ADP Schedule Contract with IBM Corp. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  
-   <licenses>
-       <license>
-            <name>IBM International License Agreement for Non-Warranted Programs</name>
-            <url>http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/maven/licenses/L-JTHS-8SZMHX/HTML/</url>
-            <distribution>repo</distribution>
-            <comments>Additional notices http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/maven/licenses/L-JTHS-8SZMHX/HTML/notices.html</comments>
-        </license>
-    </licenses>
-    
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<licenses>
+		<license>
+			<name>IBM International License Agreement for Non-Warranted Programs</name>
+			<url>http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/maven/licenses/L-JTHS-8SZMHX/HTML/</url>
+			<distribution>repo</distribution>
+			<comments>Additional notices http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/wasdev/maven/licenses/L-JTHS-8SZMHX/HTML/notices.html</comments>
+		</license>
+	</licenses>
+
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>project-ejb</artifactId>
 	<packaging>ejb</packaging>
@@ -42,6 +41,13 @@ restricted by GSA ADP Schedule Contract with IBM Corp.
 						</goals>
 					</execution>
 				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>com.ibm.websphere.appserver.thirdparty</groupId>
+						<artifactId>com.ibm.websphere.appserver.thirdparty.jpa</artifactId>
+						<version>1.0.3</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -54,7 +60,8 @@ restricted by GSA ADP Schedule Contract with IBM Corp.
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>

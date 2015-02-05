@@ -31,13 +31,13 @@ restricted by GSA ADP Schedule Contract with IBM Corp.
 			<artifactId>project-ejb</artifactId>
 			<version>${project.parent.version}</version>
 			<type>ejb</type>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
 			<artifactId>project-view</artifactId>
 			<version>${project.parent.version}</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
@@ -50,6 +50,7 @@ restricted by GSA ADP Schedule Contract with IBM Corp.
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<packagingExcludes>WEB-INF/lib/*</packagingExcludes>
+					<attachClasses>true</attachClasses>
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
